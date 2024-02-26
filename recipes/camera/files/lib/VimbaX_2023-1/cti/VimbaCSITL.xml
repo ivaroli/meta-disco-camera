@@ -1,0 +1,67 @@
+<?xml version="1.0" standalone="no" ?>
+<Settings>
+    <!--
+        Use this to activate logging and set filename for logging (path can be absolute or relative to TL)
+        Default behavior if omitted:    Logging is deactivated
+    -->
+    <!-- <LogFileName>VimbaCSITL.log</LogFileName> -->
+
+
+    <!--
+        CSI logging: Use this to activate logging and set filename(path can be absolute or relative to TL)
+        Default behavior if omitted:    Logging is deactivated
+    -->
+    <!-- <MediaLogFileName>VimbaCSI.log</MediaLogFileName> -->
+
+
+    <!--
+        Append messages to log file or reset log file at each transport layer restart (if logging is enabled)
+        True:                           Always append log messages
+        False:                          Reset log file at each transport layer restart
+        Default behavior if omitted:    Reset log file at each transport layer restart
+    -->
+    <!-- <AppendLog>True</AppendLog> -->
+
+
+    <!--
+            Activate less pedantic function parameter checks (needed for some TL consumers)
+            True:                           Tolerant function parameter checks
+            False:                          Pedantic function parameter checks
+            Default behavior if omitted:    Pedantic function parameter checks (GenTL compliant behavior)
+    -->
+    <TolerateTypeNullptr>True</TolerateTypeNullptr>
+
+
+    <!--
+            Emulate unsupported device access modes (needed for some TL consumers)
+            True:                           Emulation on
+            False:                          Emulation off
+            Default behavior if omitted:    Emulation off (GenTL compliant behavior)
+    -->
+    <EmulateAccessModes>True</EmulateAccessModes>
+
+
+    <!--
+        Enable the repeated device enumeration.
+        True:                           Activate repeated device enumeration every <EnumerationInterval>
+        False:                          Deactivate repeated device enumeration. Devices are enumerated only once.
+        Default behavior if omitted:    True
+    -->
+    <!-- <EnableEnumeration>False</EnableEnumeration> -->
+
+
+    <!--
+        Interval for each device enumeration loop (in milliseconds)
+        Decimal and hexadecimal numbers (prefixed with "0x") can be used
+        Default behavior if omitted:    Use 10000ms
+    -->
+    <!-- <EnumerationInterval>10000</EnumerationInterval> --> 
+
+
+    <!--
+        Set the folder in which remote device XML files will be cached
+        Default behavior if omitted:    XML files will be cached
+    -->
+    <XMLCacheFolder>XMLCache</XMLCacheFolder>
+
+</Settings>

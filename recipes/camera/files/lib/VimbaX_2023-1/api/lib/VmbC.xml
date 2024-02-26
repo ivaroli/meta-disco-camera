@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no" ?>
+<Settings>
+
+    <!--
+            Use this to activate logging and set filename for logging (path can be absolute or relative to API)
+            Default behavior if omitted:    Logging is deactivated
+    -->
+    <!-- <LogFileName>VmbC.log</LogFileName> -->
+    
+
+    <!--
+            Append messages to log file or reset log file at each API restart (if logging is enabled)
+            True:                           Always append log messages
+            False:                          Reset log file at each API restart
+            Default behavior if omitted:    Reset log file at each API restart
+    -->		
+	<!-- <AppendLog>False</AppendLog> -->
+
+
+    <TlLoading>
+
+        <CtiPaths>
+            <!-- <Path required="false">.</Path> -->
+        </CtiPaths>
+        
+        <!--    
+        <TlVendor vendor-type="AVT" active="true"/>
+        -->
+
+        <!--
+        <InterfaceType type="GEV" active="true"/>
+        -->
+
+        <!-- poll for interfaces every 2000 ms -->
+        <InterfacePollingPeriod>2000</InterfacePollingPeriod>
+        
+        <!--
+        <DevicePollingPeriod tl-vendor="NET" interface-type="GEV">20</DevicePollingPeriod>
+        -->
+
+        <!--
+        <UpdateDeviceListTimeout tl-vendor="NET" interface-type="GEV">50</UpdateDeviceListTimeout>
+        -->
+
+    </TlLoading>
+
+</Settings>

@@ -1,0 +1,153 @@
+{
+    "#presets": [
+        "Turn Off All",
+        "Reset All",
+        "Custom",
+        "Frame Trigger Software",
+        "Frame Trigger IO Line0 Edge",
+        "Frame Trigger IO Line0 Level",
+        "Frame Trigger IO Line0 Bulk",
+        "PWM IO Line1 timer0 1khz 50%",
+        "Counter IO Line0"
+    ],
+    
+    "Turn Off All": {
+        "#tooltip": "All trigger and source settings are off but other trigger settings like e.g. TimerDelay or TriggerActivation remain.",
+        "TriggerSelector": {
+            "#value": "<all>",
+            "TriggerSource": "Software",
+            "TriggerMode": "Off"
+        },
+        "LineSelector": {
+            "#value": "<all>",
+            "LineMode": "Input"
+        },
+        "TimerSelector": {
+            "#value": "<all>",
+            "TimerTriggerSource": "Off"
+        },
+        "CounterSelector": {
+            "#value": "<all>",
+            "CounterEventSource": "Off"
+        }
+    },
+    "Reset All": {
+        "#tooltip": "All trigger and source settings are off, other settings reset to default values (s. below).",
+        "TriggerSelector": {
+            "#value": "<all>_FrameStart",
+            "TriggerSource": "Software",
+            "TriggerMode": "Off",
+            "AcquisitionMode": "Continuous",
+            "ExposureMode": "Timed",
+            "TriggerDelay": "0"
+        },
+        "LineSelector": {
+            "#value": "<all>",
+            "LineMode": "Input",
+            "LineDebounceMode": "Off",
+            "LineDebounceDuration": "<min>"
+        },
+        "TimerSelector": {
+            "#value": "<all>",
+            "TimerTriggerSource": "Off",
+            "TimerDelay": "0",
+            "TimerDuration": "0"
+        },
+        "CounterSelector": {
+            "#value": "<all>",
+            "CounterEventSource": "Off",
+            "CounterValue": "0",
+            "CounterDuration": "0"
+        }
+    },
+    "Custom": {
+        "#tooltip": "Does not change anything when selected, but is active when user makes any trigger changes and activates a trigger counter or timer."
+    },
+    "Frame Trigger Software": {
+        "TriggerSelector": {
+            "#value": "FrameStart",
+            "TriggerActivation": "RisingEdge",
+            "TriggerSource": "Software",
+            "AcquisitionMode": "Continuous",
+            "ExposureMode": "Timed",
+            "TriggerMode": "On"
+        }
+    },
+                 
+    "Frame Trigger IO Line0 Edge": {
+        "TriggerSelector": {
+            "#value": "FrameStart",
+            "TriggerActivation": "RisingEdge",
+            "TriggerSource": "Line0",
+            "AcquisitionMode": "Continuous",
+            "ExposureMode": "Timed",
+            "TriggerMode": "On"
+            },
+        "LineSelector": {
+            "#value": "Line0",
+            "LineMode": "Input",
+            "LineDebounceMode": "Off"
+        }
+    },
+    
+    "Frame Trigger IO Line0 Level": {
+        "TriggerSelector": {
+            "#value": "FrameStart",
+            "TriggerActivation": "LevelHigh",
+            "TriggerSource": "Line0",
+            "AcquisitionMode": "Continuous",
+            "ExposureMode": "TriggerWidth",
+            "TriggerMode": "On"
+        },
+        "LineSelector": {
+            "#value": "Line0",
+            "LineMode": "Input",
+            "LineDebounceMode": "Off"
+        }
+    },
+    
+    "Frame Trigger IO Line0 Bulk": {
+        "TriggerSelector": {
+            "#value": "FrameStart",
+            "TriggerActivation": "RisingEdge",
+            "TriggerSource": "Line0",
+            "AcquisitionMode": "MultiFrame",
+            "AcquisitionFrameCount": "10",
+            "ExposureMode": "Timed",
+            "TriggerMode": "On"
+        }
+    },
+    
+    "PWM IO Line1 timer0 1khz 50%": {
+        "TimerSelector": {
+            "#value": "Timer0",
+            "TimerDelay": "500",
+            "TimerDuration": "500",
+            "TimerTriggerActivation": "FallingEdge",
+            "TimerTriggerSource": "Timer0Active"
+        },
+        "LineSelector": {
+            "#value": "Line1",
+            "LineMode": "Output",
+            "LineSource": "Timer0Active"
+        },
+        "#execute": "TimerReset"
+    },
+    
+    "Counter IO Line0": {
+        "CounterSelector": {
+            "#value": "Counter0",
+            "CounterDuration": "<max>",
+            "CounterEventActivation": "RisingEdge",
+            "CounterEventSource": "Line0",
+            "CounterResetSource": "Off",
+            "CounterTriggerSource": "Off"
+        },
+        "LineSelector": {
+            "#value": "Line0",
+            "LineMode": "Input",
+            "LineDebounceMode": "Off"
+        },
+        "#execute": "CounterReset"
+    }
+}

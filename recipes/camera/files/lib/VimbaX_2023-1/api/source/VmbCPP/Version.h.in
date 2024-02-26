@@ -1,0 +1,29 @@
+/*
+|==============================================================================
+| Copyright (C) 2012 - 2021 Allied Vision Technologies.  All Rights Reserved.
+|
+| Reproduction or disclosure of this file or its contents without the prior
+| written consent of Allied Vision Technologies is prohibited.
+|==============================================================================
+|
+| File:         Version.h
+|
+| Project/lib:  VmbC
+|
+| Target:       any
+|
+| Description:  Define version number of library here
+|
+| Notes:
+|
+|==============================================================================
+*/
+
+#ifndef _VERSION_H_INCLUDE
+#define _VERSION_H_INCLUDE
+
+#define VMBCPP_VERSION_MAJOR  ${VMB_MAJOR_VERSION}
+#define VMBCPP_VERSION_MINOR  ${VMB_MINOR_VERSION}
+#define VMBCPP_VERSION_PATCH  ${VMB_PATCH_VERSION}
+
+#endif //_VERSION_H_INCLUDE
