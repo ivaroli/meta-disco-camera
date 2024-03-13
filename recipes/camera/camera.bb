@@ -2,10 +2,10 @@ SUMMARY = "DISCO 2 Camera control software"
 SECTION = "camera"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-DEPENDS += "opencv"
+DEPENDS += "opencv csp"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/ivaroli/meta-disco-camera-files.git;branch=main"
+SRC_URI = "git://github.com:ivaroli/DiscoCameraController.git;branch=main"
 
 S = "${WORKDIR}"
 
