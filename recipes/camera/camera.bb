@@ -2,12 +2,11 @@ SUMMARY = "DISCO 2 Camera control software"
 SECTION = "camera"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-DEPENDS += "opencv csp"
+DEPENDS = "opencv libcsp"
 
-SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com:ivaroli/DiscoCameraController.git;branch=main"
+SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=3ba3f829e4fb03946d09e239e670f9b8d0209a53"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/git"
 
 inherit cmake
 
@@ -25,11 +24,11 @@ do_install(){
     install -d ${D}${sysconfdir}/lib
     install -d 644 ${D}${sysconfdir}/profile.d
 
-    install -m 0644 ${WORKDIR}/lib/VimbaX_2023-1/api/lib/*.so ${D}${libdir}
-    install -m 0644 ${WORKDIR}/lib/VimbaX_2023-1/api/lib/GenICam/*.so ${D}${libdir}
-    install ${WORKDIR}/build/Disco2CameraControl ${D}${bindir}
+    install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-1/api/lib/*.so ${D}${libdir}
+    install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-1/api/lib/GenICam/*.so ${D}${libdir}
+    install ${WORKDIR}/git/build/Disco2CameraControl ${D}${bindir}
 
-    cp -r ${WORKDIR}/lib/VimbaX_2023-1 ${D}${sysconfdir}/lib/VimbaX_2023-1
+    cp -r ${WORKDIR}/git/lib/VimbaX_2023-1 ${D}${sysconfdir}/lib/VimbaX_2023-1
     chmod 447 ${D}${sysconfdir}/lib/VimbaX_2023-1/cti/VimbaUSBTL_Install.sh
 }
 
