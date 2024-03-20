@@ -1,6 +1,6 @@
 SUMMARY = "Opencv : The Open Computer Vision Library"
 HOMEPAGE = "http://opencv.org/"
-SECTION = "libs"
+SECTION = "camera"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6450921bb12a3133c8f5cb2a80343710"

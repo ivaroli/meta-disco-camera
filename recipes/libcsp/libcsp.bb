@@ -1,5 +1,5 @@
 DESCRIPTION = "Cubesat Space Protocol (CSP)"
-SECTION = "libs"
+SECTION = "camera"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=2915dc85ab8fd26629e560d023ef175c"
 
