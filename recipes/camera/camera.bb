@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 DEPENDS = "libcsp"
 
-SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=0c4bb112e908e919c9018f6f20dce367703eaacb"
+SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=27f36cecc82f766c933d1a202fc0a6f221c07bb9"
 
 S = "${WORKDIR}/git"
 
