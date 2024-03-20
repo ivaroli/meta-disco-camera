@@ -3,11 +3,8 @@ SECTION = "camera"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=fc150f1a69c8b10e5f2fc5e76d1a9bcb8a9cc47d"
+SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=00e91a87b2546c150552c51813e4733056ae1485"
 
-SRC_URI += " \
-    git://github.com/spaceinventor/libcsp.git;protocol=https;destsuffix=git/lib/csp;name=libcsp;branch=master;rev=544635f292b7a15ea46b95cd2861102129c329e7 \
-"
 
 S = "${WORKDIR}/git"
 
@@ -21,7 +18,7 @@ do_configure[depends] += "libcsp:do_populate_sysroot"
 
 OECMAKE_FIND_ROOT_PATH_MODE_PROGRAM = "BOTH"
 
-PROVIDES = " libVmbCPP"
+PROVIDES += " libVmbCPP"
 RPROVIDES_${PN} += " libVmbCPP.so()(64bit)"
 
 SOLIBS = ".so"
@@ -35,11 +32,13 @@ do_install(){
 
     install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64/api/lib/*.so ${D}${libdir}
     install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64/api/lib/GenICam/*.so ${D}${libdir}
-    install ${WORKDIR}/git/build/Disco2CameraControl ${D}${bindir}
+    install ${WORKDIR}/build/Disco2CameraControl ${D}${bindir}
 
     cp -r ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64
     chmod 447 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64/cti/VimbaUSBTL_Install.sh
 }
+INHIBIT_PACKAGE_STRIP = "1"
+INSANE_SKIP:${PN} += "already-stripped"
 
 FILES_${PN} += "${libdir}/libVmbCPP.so"
 FILES_${PN} += "${libdir}/libVmbC.so"
