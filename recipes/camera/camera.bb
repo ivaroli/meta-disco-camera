@@ -12,8 +12,8 @@ inherit cmake
 
 EXTRA_OECMAKE = "-DCMAKE_BUILD_TYPE=Release"
 
-RDEPENDS:${PN} += "libcsp"
-DEPENDS += "libcsp"
+RDEPENDS:${PN} += "zeromq can-utils libcsp"
+DEPENDS += "zeromq can-utils libcsp"
 do_configure[depends] += "libcsp:do_populate_sysroot"
 
 OECMAKE_FIND_ROOT_PATH_MODE_PROGRAM = "BOTH"
