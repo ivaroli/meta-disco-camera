@@ -9,6 +9,9 @@ SRCREV = "544635f292b7a15ea46b95cd2861102129c329e7"
 S = "${WORKDIR}/git"
 B = "${S}/builddir"
 
+RDEPENDS:${PN} += "zeromq can-utils"
+DEPENDS += "zeromq can-utils"
+
 inherit cmake
 
 EXTRA_OECMAKE = "-DCMAKE_INSTALL_PREFIX=/usr"
