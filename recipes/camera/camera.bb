@@ -14,7 +14,7 @@ S = "${WORKDIR}/git"
 
 inherit meson pkgconfig
 
-RDEPENDS:${PN} += "zeromq can-utils libcsp libbsd pkgconfig meson-native opencv"
+RDEPENDS:${PN} += "zeromq can-utils libcsp libbsd pkgconfig opencv"
 DEPENDS += "curl openssl libsocketcan can-utils zeromq libyaml meson-native ninja-native pkgconfig python3-pip-native elfutils libbsd glibc opencv"
 
 PROVIDES += " libVmbCPP"
