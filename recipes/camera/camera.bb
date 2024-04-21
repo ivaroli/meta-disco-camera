@@ -42,6 +42,7 @@ do_install(){
     install -d ${D}${sysconfdir}/lib
     install -d 644 ${D}${sysconfdir}/profile.d
     install -d ${D}${sysconfdir}/udev
+    install -d ${D}${sysconfdir}/udev/rules.d
 
     install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64/api/lib/*.so ${D}${libdir}
     install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64/api/lib/GenICam/*.so ${D}${libdir}
@@ -50,9 +51,9 @@ do_install(){
     cp -r ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64
     chmod 447 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64/cti/VimbaUSBTL_Install.sh
 
-    echo -e "SUBSYSTEM==\"usb\", ACTION==\"add\", ATTRS{idVendor}==\"1ab2\", ATTRS{idProduct}==\"0001\", MODE=\"0666\"\nSUBSYSTEM==\"usb\", ACTION==\"add\", ATTRS{idVendor}==\"1ab2\", ATTRS{idProduct}==\"ff01\", MODE=\"0666\"" >> ${D}${sysconfdir}/profile.d/99-AVTUSBTL.rules
+    echo "SUBSYSTEM==\"usb\", ACTION==\"add\", ATTRS{idVendor}==\"1ab2\", ATTRS{idProduct}==\"0001\", MODE=\"0666\"\nSUBSYSTEM==\"usb\", ACTION==\"add\", ATTRS{idVendor}==\"1ab2\", ATTRS{idProduct}==\"ff01\", MODE=\"0666\"" >> ${D}${sysconfdir}/udev/rules.d/99-AVTUSBTL.rules
 
-    echo -e "#!/bin/sh\n\nexport GENICAM_GENTL64_PATH=\$GENICAM_GENTL64_PATH:\"${D}${sysconfdir}/lib/VimbaX_2023-4-Linux/cti\"" >> ${D}${sysconfdir}/profile.d/AVTUSBTL_64bit.sh
+    echo "#!/bin/sh\n\nexport GENICAM_GENTL64_PATH=\$GENICAM_GENTL64_PATH:\"${sysconfdir}/lib/VimbaX_2023-4-Linux/cti\"" >> ${D}${sysconfdir}/profile.d/AVTUSBTL_64bit.sh
     chmod 777 ${D}${sysconfdir}/profile.d/AVTUSBTL_64bit.sh
 }
 
