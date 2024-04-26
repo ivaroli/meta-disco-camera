@@ -3,7 +3,7 @@ SECTION = "camera"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=98f58a323f61eacb3ff5c4a3d861141133fd776b;protocol=https"
+SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=b482948d4bd41dfab8b9a3ee64dcc55cc1bb6a16;protocol=https"
 
 SRC_URI += " \
     git://github.com/spaceinventor/libcsp.git;protocol=https;destsuffix=git/lib/csp;name=libcsp;branch=master;rev=544635f292b7a15ea46b95cd2861102129c329e7 \
@@ -47,6 +47,7 @@ do_install(){
     install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64/api/lib/*.so ${D}${libdir}
     install -m 0644 ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64/api/lib/GenICam/*.so ${D}${libdir}
     install ${WORKDIR}/build/Disco2CameraControl ${D}${bindir}
+    install ${WORKDIR}/build/receiver ${D}${bindir}
 
     cp -r ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64
     chmod 447 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64/cti/VimbaUSBTL_Install.sh
