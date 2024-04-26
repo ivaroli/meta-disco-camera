@@ -3,7 +3,7 @@ SECTION = "camera"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=b482948d4bd41dfab8b9a3ee64dcc55cc1bb6a16;protocol=https"
+SRC_URI = "git://github.com/ivaroli/DiscoCameraController.git;branch=main;rev=ff029d3a8a82eacc8740db913dc7b6fb3609d524;protocol=https"
 
 SRC_URI += " \
     git://github.com/spaceinventor/libcsp.git;protocol=https;destsuffix=git/lib/csp;name=libcsp;branch=master;rev=544635f292b7a15ea46b95cd2861102129c329e7 \
