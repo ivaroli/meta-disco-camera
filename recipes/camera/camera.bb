@@ -52,10 +52,16 @@ do_install(){
     cp -r ${WORKDIR}/git/lib/VimbaX_2023-4-ARM64 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64
     chmod 447 ${D}${sysconfdir}/lib/VimbaX_2023-4-ARM64/cti/VimbaUSBTL_Install.sh
 
+    install -d ${D}/home/root
+    install -m 0777 ${WORKDIR}/git/experiment.sh ${D}/home/root/experiment_camera.sh
+
     echo "SUBSYSTEM==\"usb\", ACTION==\"add\", ATTRS{idVendor}==\"1ab2\", ATTRS{idProduct}==\"0001\", MODE=\"0666\"\nSUBSYSTEM==\"usb\", ACTION==\"add\", ATTRS{idVendor}==\"1ab2\", ATTRS{idProduct}==\"ff01\", MODE=\"0666\"" >> ${D}${sysconfdir}/udev/rules.d/99-AVTUSBTL.rules
 
     echo "#!/bin/sh\n\nexport GENICAM_GENTL64_PATH=\$GENICAM_GENTL64_PATH:\"${sysconfdir}/lib/VimbaX_2023-4-ARM64/cti\"" >> ${D}${sysconfdir}/profile.d/AVTUSBTL_64bit.sh
     chmod 777 ${D}${sysconfdir}/profile.d/AVTUSBTL_64bit.sh
+
+    echo "#!/bin/sh\n\nDisco2CameraControl -i can -d can0 -n 2" >> ${D}${sysconfdir}/profile.d/RUN_CAMERA.sh
+    chmod 777 ${D}${sysconfdir}/profile.d/RUN_CAMERA.sh
 }
 
 INHIBIT_PACKAGE_STRIP = "1"
@@ -63,6 +69,7 @@ INSANE_SKIP:${PN} += "already-stripped"
 
 FILES:${PN} += "${libdir}/libVmbCPP.so"
 FILES:${PN} += "${libdir}/libVmbC.so"
+FILES:${PN} += "/home/root/experiment_camera.sh"
 FILES:${PN} += "/usr/csp /usr/csp/csp_autoconfig.h"
 FILES:${PN} += "${sysconfdir}/udev"
 
